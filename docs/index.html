@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Revocoder — 让你的蓝牙语音遥控器成为 Windows 上的全能 Agent 控制器。">
+  <meta name="theme-color" content="#2B2926">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Revocoder | Remoter for Agent Scene | LocalWu</title>
+
+  <!-- Fonts via jsDelivr font-source-variable -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/noto-sans-sc@latest/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/inter@latest/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/roboto-condensed@latest/index.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       Navigation
+       ═══════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="主导航">
+    <div class="nav__inner">
+      <!-- Logo -->
+      <a href="#" class="nav__logo" aria-label="Revocoder 首页">
+        <span class="nav__logo-icon">
+          <img src="assets/images/revocoder-icon-on-dark.svg" alt="" width="40" height="40">
+        </span>
+        <span class="nav__logo-wordmark">
+          <img src="assets/images/revocoder-wordmark.svg" alt="Revocoder" width="120" height="28">
+        </span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="nav__links">
+        <a href="#features" class="nav__link">功能</a>
+        <a href="#install" class="nav__link">安装指引</a>
+        <a href="#faq" class="nav__link">Q&amp;A</a>
+        <a href="/changelog" class="nav__link">更新日志</a>
+        <a href="#download" class="btn btn--nav-download">立即下载</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="nav__menu-btn" aria-label="打开菜单" aria-expanded="false">
+        <i data-lucide="menu" style="width:24px;height:24px;"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile-menu">
+    <a href="#features" class="nav__link">功能</a>
+    <a href="#install" class="nav__link">安装指引</a>
+    <a href="#faq" class="nav__link">Q&amp;A</a>
+    <a href="/changelog" class="nav__link">更新日志</a>
+    <a href="#download" class="nav__link">立即下载</a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       Hero Section
+       ═══════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- 左侧文案 -->
+        <div class="hero__content">
+          <span class="hero__tagline">Remoter for Agent Scene</span>
+          <h1 class="hero__title">
+            <span class="hero__title-wordmark">
+              <img src="assets/images/revocoder-wordmark.svg" alt="Revocoder" width="400" height="90">
+            </span>
+          </h1>
+          <p class="hero__subtitle">AI 好戏，轮番上演</p>
+          <p class="hero__description">看电视一样控制你的 Agent</p>
+          <div class="hero__meta">
+            <span>最新版本 v1.0.5</span>
+            <span class="hero__meta-divider"></span>
+            <span>最低系统版本 Windows 10 2004</span>
+          </div>
+          <div class="hero__actions" id="download">
+            <a href="https://cfdload.localwu.top/revocoder/revocoder-v1.0.5-gamma.exe" class="btn btn--primary">
+              <i data-lucide="download" class="btn__icon"></i>
+              下载 Revocoder for Windows X86
+            </a>
+            <a href="https://cfdload.localwu.top/revocoder/vb-cable-driver-v2.1.5.8.zip" class="btn btn--outline">
+              <i data-lucide="download" class="btn__icon"></i>
+              下载 VB-Cable Installer
+            </a>
+            <a href="https://cfdload.localwu.top/revocoder/winuhid-manager-v0.0.5.exe" class="btn btn--outline">
+              <i data-lucide="download" class="btn__icon"></i>
+              下载 WinUHid Manager for Revocoder
+            </a>
+          </div>
+        </div>
+
+        <!-- 右侧产品图 -->
+        <div class="hero__visual">
+          <!-- 语音气泡区域 -->
+          <div class="hero__bubbles" id="heroBubbles" aria-hidden="true"></div>
+          <picture>
+            <source srcset="assets/images/rc-tilt.avif" type="image/avif">
+            <source srcset="assets/images/rc-tilt.webp" type="image/webp">
+            <img
+              src="assets/images/rc-tilt.png"
+              alt="Revocoder 蓝牙语音遥控器"
+              class="hero__product-img"
+              width="479"
+              height="587"
+              loading="eager"
+              decoding="async"
+            >
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       Features Strip — 四大特性
+       ═══════════════════════════════════════ -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+
+        <div class="features-strip__item reveal">
+          <div class="feature-icon">
+            <i data-lucide="sparkles"></i>
+          </div>
+          <h3 class="features-strip__title">转瞬即逝的绝佳灵感</h3>
+          <p class="features-strip__desc">灵感绝佳 但转瞬即逝，Revocoder 管理语音键和麦克风，帮你创造一个无打断的记录瞬间</p>
+        </div>
+
+        <div class="features-strip__item reveal reveal-delay-1">
+          <div class="feature-icon">
+            <i data-lucide="mic"></i>
+          </div>
+          <h3 class="features-strip__title">与 Agent 对谈 张弛有度</h3>
+          <p class="features-strip__desc">无论是 Vibe Coding 还是 Clawing，无需守着键盘，按住说话确认发送，甚至简单修改，都可以只在遥控器上</p>
+        </div>
+
+        <div class="features-strip__item reveal reveal-delay-2">
+          <div class="feature-icon">
+            <i data-lucide="monitor-play"></i>
+          </div>
+          <h3 class="features-strip__title">看电视 那可是老本行</h3>
+          <p class="features-strip__desc">你可以控制媒体，前进后退，暂停加速，而不一定要钉在桌前按键盘，不管你躺在椅子上，还是躺在床上</p>
+        </div>
+
+        <div class="features-strip__item reveal reveal-delay-3">
+          <div class="feature-icon">
+            <i data-lucide="presentation"></i>
+          </div>
+          <h3 class="features-strip__title">演讲 也不只是说点什么</h3>
+          <p class="features-strip__desc">绝佳的演示工具，上一张下一张。但配合自由度极高的快捷键系统，你可以展示的不只是幻灯片</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       Main Content — 安装指引 + 功能 + Q&A
+       ═══════════════════════════════════════ -->
+  <section class="main-section">
+    <div class="container">
+      <div class="content-grid">
+
+        <!-- 左侧：安装指引 -->
+        <div class="install-guide" id="install">
+          <div class="card">
+            <h2 class="card__title">首次安装使用指引</h2>
+
+            <!-- Step 1 -->
+            <div class="step-card">
+              <h3 class="step-card__label">Step 1 下载安装文件</h3>
+              <div class="step-card__content">
+                <p>在当前页面下载最新版 Revocoder、VB-Cable 以及 WinUHid Manager。</p>
+                <p><strong>Revocoder</strong>：主程序与主界面</p>
+                <p><strong>VB-Cable</strong>：在设备上构建虚拟声卡与声道</p>
+                <p><strong>WinUHid Manager</strong>：在设备上构建虚拟输入设备</p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card">
+              <h3 class="step-card__label">Step 2 安装 VB-Cable</h3>
+              <div class="step-card__content">
+                <p>仅首次安装需要。右键 VB-Cable 安装程序，选择以管理员身份运行，并在弹出的权限窗口中选择允许。</p>
+                <p>在 VB-Cable 界面中选择 Install Driver 即安装驱动，等待弹窗提示安装成功后手动进行一次系统重启（重启是必要的）。</p>
+                <p>打开声音设置面板，确保将输入设备切换到 CABLE Output，但不要将 CABLE Input 设置为默认输出。</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+              <h3 class="step-card__label">Step 3 安装 WinUHid</h3>
+              <div class="step-card__content">
+                <p>仅首次安装需要。右键 WinUHid Manager 安装程序，选择以管理员身份运行，并在弹出的权限窗口中选择允许。</p>
+                <p>在 WinUHid Manager 界面中选择 Install Driver 即安装驱动，等待弹窗提示安装成功后手动进行一次系统重启（重启是必要的）。</p>
+                <p>重启后再次右键 WinUHid Manager 安装程序，选择以管理员身份运行，并在弹出的权限窗口中选择允许。在 WinUHid Manager 界面点击 Refresh Status 即刷新状态，当 Device 和 Driver 的状态都为正确时 WinUHid 的安装结束，反之若有任意状态有问题，则需再次点击 Install Driver，安装后重启并重新查看 Device 和 Driver 的状态。</p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card">
+              <h3 class="step-card__label">Step 4 连接遥控器</h3>
+              <div class="step-card__content">
+                <p>进入 Windows 蓝牙设置页面，选择添加设备，同时也需要将你当前手中需要连接的设备触发连接状态。</p>
+                <p>选择列表中你的设备，进行连接，连接完成后，你的设备会在蓝牙列表出现并显示设备名称、设备电量以及"已连接"字样。</p>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-card">
+              <h3 class="step-card__label">Step 5 使用 Revocoder</h3>
+              <div class="step-card__content">
+                <p>当你能确保前面的安装完整完成，便可右键 Revocoder 程序，选择以管理员身份运行，并在弹出的权限窗口中选择允许。</p>
+                <p>等待一会儿，Revocoder 会自动连接你的设备、自动初始化。你可以点击左下角的状态，查看细致的状态信息。</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 右侧：功能 + Q&A -->
+        <div class="right-column">
+
+          <!-- 功能 -->
+          <div class="features-detail" id="features">
+            <div class="card">
+              <h2 class="card__title">功能</h2>
+
+              <div class="feature-item">
+                <h3 class="feature-item__title">让你的蓝牙语音遥控器不只是看电视</h3>
+                <p class="feature-item__desc">Revocoder 做好了语音、按键的全面桥接和接管，让你的遥控器也能连接 Windows 电脑，从快捷键到 Vibe Coding，让这只 Magic Wand 发挥它的更多实力</p>
+              </div>
+
+              <div class="feature-item">
+                <h3 class="feature-item__title">省心的背后是深度和复杂的实现</h3>
+                <p class="feature-item__desc">Revocoder 从硬件设备、系统、音频、按键系统等多方面进行了全面、多层级的整合，每一层都是为了让功能能够真正实现，让功能更稳健，能力有兜底，不轻易崩溃，只为省心体验。</p>
+              </div>
+
+              <div class="feature-item">
+                <h3 class="feature-item__title">丰富强大的快捷键设置</h3>
+                <p class="feature-item__desc">Revocoder 不仅能映射遥控器的单击按键变成你想要的快捷键，还能单独设计双击、长按，一个键就能对应三种状态，唤起语音、删除、撤回、换行、确认...这让基础编辑汇聚于一台设备成为了可能</p>
+              </div>
+
+              <div class="feature-item">
+                <h3 class="feature-item__title">完整好用的语音系统</h3>
+                <p class="feature-item__desc">Revocoder 完善了遥控器硬件设备与音频消耗应用间的桥梁，将语音键设置为对应输入法按下说话的快捷键，即可随时触发，想说就说。还有倒计时等等贴心的设计，只顾抓住灵感。</p>
+              </div>
+
+              <div class="feature-item">
+                <h3 class="feature-item__title">持续进化</h3>
+                <p class="feature-item__desc">Revocoder 仍在持续进化，欢迎你的反馈。</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Q&A -->
+          <div class="faq-section" id="faq">
+            <div class="card">
+              <h2 class="card__title">Q&amp;A</h2>
+
+              <div class="faq-item">
+                <h3 class="faq-item__question">如何卸载</h3>
+                <p class="faq-item__answer">同样以管理员身份运行 VB-Cable Installer 选择 Remove Driver 然后重启，再以管理员身份运行进入 WinUHid Manager 选择 Uninstall Driver 然后重启，即可将所有需要的驱动移除。</p>
+              </div>
+
+              <div class="faq-item">
+                <h3 class="faq-item__question">为什么 发送输入 SendInput 以及 按键抑制 RawInput 有时候呈现黄色状态（初始化状态）</h3>
+                <p class="faq-item__answer">发送输入 SendInput 以及 按键抑制 RawInput 这两个状态的判定依赖于你的设备发送真实的按键或行为信息，才能正确确定真实状态。在功能无误的情况下，一般会在真实使用一小段时间后自动确认完成状态。</p>
+              </div>
+
+              <div class="faq-item">
+                <h3 class="faq-item__question">如何反馈、提出功能需求</h3>
+                <p class="faq-item__answer">Revocoder 自身的开源仓库还在准备当中，在此之前，你可以将你的反馈信息发送到 <a href="mailto:feedback@revocoder.localwu.com">feedback@revocoder.localwu.com</a>，并注明主题和你的反馈。</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       Footer
+       ═══════════════════════════════════════ -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="footer">
+        <div class="footer__inner">
+
+          <!-- Logo + 简介 -->
+          <div class="footer__brand">
+            <div class="footer__logo">
+              <img src="assets/images/revocoder-icon.svg" alt="" width="48" height="48">
+              <img src="assets/images/revocoder-wordmark.svg" alt="Revocoder" width="120" height="26">
+            </div>
+            <p class="footer__tagline">Remoter for Agent Scene</p>
+          </div>
+
+          <!-- 资源链接 -->
+          <div class="footer__links">
+            <h4 class="footer__links-title">资源</h4>
+            <ul class="footer__links-list">
+              <li><a href="#download">下载 Revocoder</a></li>
+              <li><a href="#">VB-Cable Installer</a></li>
+              <li><a href="#">WinUHid Manager</a></li>
+            </ul>
+          </div>
+
+          <!-- 参考链接 -->
+          <div class="footer__links">
+            <h4 class="footer__links-title">参考</h4>
+            <ul class="footer__links-list">
+              <li><a href="#install">安装指引</a></li>
+              <li><a href="#faq">常见问题</a></li>
+              <li><a href="/learn/">使用文档</a></li>
+              <li><a href="/changelog/">更新日志</a></li>
+            </ul>
+          </div>
+
+          <!-- 关于链接 -->
+          <div class="footer__links">
+            <h4 class="footer__links-title">关于</h4>
+            <ul class="footer__links-list">
+              <li><a href="/about/">关于 Revocoder</a></li>
+              <li><span class="footer__link--disabled">开源仓库（准备中）</span></li>
+            </ul>
+          </div>
+
+          <!-- 致谢 -->
+          <div class="footer__credits">
+            <p>Revocoder 是基于 <a href="https://github.com/xxb26553663-star/remote-bridge-hub" target="_blank">remote-bridge-hub</a> 二次开发的 <a href="https://github.com/mwlt/Voice_VibeCoding" target="_blank">Voice VibeCoding</a> 的再次开发</p>
+            <p>Revocoder by <a href="https://localwu.com" target="_blank">LocalWu</a> · 原创标识及相关设计仍具有相关版权</p>
+          </div>
+
+          <!-- 底部版权 -->
+          <div class="footer__copyright">
+            <p>&copy; 2026 Revocoder. LocalWu. Passion Drives. 热爱使燃。All Rights Reserved.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════
+       Scripts
+       ═══════════════════════════════════════ -->
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>

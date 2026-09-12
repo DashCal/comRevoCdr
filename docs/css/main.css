@@ -1,0 +1,342 @@
+/* ============================================
+   Revocoder Page Styles
+   閸氬嫬灏崸妤冩畱閸忚渹缍嬬敮鍐ㄧ湰娑撳孩鐗卞?   ============================================ */
+
+/* 閳光偓閳光偓 Hero Section 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓 */
+
+.hero {
+  padding-top: calc(var(--nav-height) + var(--space-12));
+  padding-bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--color-border-on-dark);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-top: calc(var(--nav-height) + var(--space-16));
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero {
+    padding-top: calc(var(--nav-height) + var(--space-20));
+    padding-bottom: 0;
+  }
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.hero__tagline {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-on-dark-secondary);
+  letter-spacing: var(--tracking-wide);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, var(--text-hero));
+  font-weight: var(--weight-black);
+  letter-spacing: var(--tracking-tighter);
+  line-height: 0.95;
+  color: var(--color-text-on-dark);
+}
+
+.hero__title-wordmark {
+  display: block;
+}
+
+.hero__title-wordmark img {
+  height: auto;
+  width: 100%;
+  max-width: 360px;
+  /* 濞ｈ精澹?SVG 閳?閻у€熷 */
+  filter: invert(1) brightness(2);
+}
+
+.hero__subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--text-xl), 4vw, var(--text-4xl));
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-on-dark);
+  margin-top: var(--space-2);
+}
+
+.hero__description {
+  font-size: var(--text-md);
+  color: var(--color-text-on-dark-secondary);
+  max-width: 400px;
+}
+
+.hero__meta {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--color-text-on-dark-tertiary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.hero__meta-divider {
+  width: 1px;
+  height: 14px;
+  background-color: var(--color-text-on-dark-tertiary);
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-12); /* 缂佹瑥绨抽柈銊ф殌缁屾椽妫块敍灞肩瑝鐟曚浇鍒涢惈鈧?strip */
+  align-items: flex-start;
+}
+
+@media (max-width: 767px) {
+  .hero__actions {
+    margin-bottom: 7em;
+  }
+}
+
+/* Hero 閸欏厖鏅舵禍褍鎼ч崶?*/
+.hero__visual {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* 璇煶姘旀场鍖哄煙 */
+.hero__bubbles {
+  position: absolute;
+  top: -175px;
+  right: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero__visual picture {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__bubble {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-bg-hover-dark-strong);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border-on-dark);
+  border-radius: var(--radius-lg) var(--radius-lg) var(--radius-xs) var(--radius-lg);
+  color: var(--color-text-on-dark);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: bottom 0.35s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.hero__bubble.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__bubble.is-fading {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.hero__product-img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+}
+
+/* 閸濆秴绨插蹇ョ窗鐠嬪啯鏆ｆ禍褍鎼ч崶鎯ь啍鎼?*/
+@media (max-width: 767px) {
+  .hero__visual {
+    /* 缁夎濮╃粩顖欑瑝闂団偓鐟曚線顤傛径鏍ㄧ壉瀵骏绱濋悽?hero-grid 閹貉冨煑鐎规矮缍?*/
+  }
+
+  .hero__product-img {
+    max-width: 200px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .hero__product-img {
+    max-width: 260px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero__product-img {
+    max-width: 300px;
+  }
+}
+
+/* 閳光偓閳光偓 Features Strip 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓 */
+
+.features-strip {
+  background-color: var(--color-bg-darker);
+  padding: var(--space-16) 0;
+  border-radius: 0;
+  /* 娑撳秹娓剁憰浣界 margin閿涘矁顔€鐎瑰啳鍤滈悞璺烘勾閸ф劕婀?hero 娑撳鏌?*/
+  margin-top: 0;
+  position: relative;
+  /* 娑撳秷顔曠純?z-index閿涘矁顔€鐎瑰啫婀锝呯埗閺傚洦銆傚ù浣疯厬 */
+}
+
+@media (min-width: 768px) {
+  .features-strip {
+    padding: var(--space-20) 0;
+  }
+}
+
+.features-strip__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.features-strip__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-on-dark);
+  line-height: var(--leading-normal);
+}
+
+.features-strip__desc {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-on-dark-secondary);
+}
+
+/* 閳光偓閳光偓 Main Content Section 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓 */
+
+.main-section {
+  padding: var(--space-12) 0 var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .main-section {
+    padding: var(--space-16) 0 var(--space-20);
+  }
+}
+
+@media (min-width: 1280px) {
+  .main-section {
+    padding: var(--space-20) 0 var(--space-24);
+  }
+}
+
+/* 鐎瑰顥婇幐鍥х穿閸?*/
+.install-guide {
+  position: relative;
+}
+
+.install-guide .card {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-6));
+}
+
+/* 閸欏厖鏅堕崚?*/
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.right-column .card {
+  position: relative;
+}
+
+/* 閸旂喕鍏橀崠鍝勬健閺嶅洭顣?*/
+.features-detail .card__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Q&A 閸栧搫娼?*/
+.faq-section .card__title {
+  font-size: var(--text-xl);
+}
+
+/* 閳光偓閳光偓 Footer Section 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓 */
+
+.footer-section {
+  margin-top: var(--space-8);
+}
+
+.footer__highlight {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-on-dark);
+}
+
+/* 閳光偓閳光偓 Scroll Reveal Animation 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓 */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-slower) var(--ease-out),
+              transform var(--duration-slower) var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 娴溿倝鏁婂鎯扮箿閿涘牏鏁ゆ禍搴ｇ秹閺嶇厧鐡欓崗鍐閿?*/
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+
+/* 閳光偓閳光偓 Loading State 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓 */
+
+body.is-loading {
+  overflow: hidden;
+}
+
+/* 鐎涙ぞ缍嬮崝鐘烘祰閸撳秶娈戦崥搴☆槵鐞涖劎骞?*/
+.fonts-loading .hero__title {
+  letter-spacing: 0;
+}
+
+/* 閳光偓閳光偓 Print 閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓閳光偓 */
+
+@media print {
+  .nav, .features-strip, .footer {
+    display: none;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+  .card {
+    box-shadow: none;
+    border: 1px solid var(--color-border-print);
+  }
+}
+
+
+

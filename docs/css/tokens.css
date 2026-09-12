@@ -1,0 +1,250 @@
+/* ============================================
+   Revocoder Design Tokens
+   Version: 1.0.0
+   Date: 2026-09-12
+   
+   所有视觉决策的单一数据源。
+   修改这里 → 全局生效。
+   ============================================ */
+
+:root {
+  /* ──────────────────────────────────────────
+     COLOR · 背景色阶
+     从最深到最浅，构建页面的层次感。
+     整体色调偏冷紫灰，统一调性。
+     ────────────────────────────────────────── */
+  
+  /* 最深层 — Footer、极暗区域 */
+  --color-bg-deepest:     #000000;
+  /* 次深层 — Feature strip、分隔条带 */
+  --color-bg-darker:      #1E1C20;
+  /* 主背景 — 页面底色、Hero 区 */
+  --color-bg-primary:     #29262B;
+  /* 卡片内嵌步骤块的底色（在白色卡片内部） */
+  --color-bg-muted:       #F2F0F4;
+  /* 白色卡片 */
+  --color-bg-card:        #FFFFFF;
+  /* 悬浮态卡片（未来用） */
+  --color-bg-card-hover:  #FAF9FB;
+
+  /* ──────────────────────────────────────────
+     COLOR · 文字色阶
+     分为"深底上的文字"和"浅底上的文字"两套。
+     ────────────────────────────────────────── */
+  
+  /* 深底文字 */
+  --color-text-on-dark:          #FFFFFF;
+  --color-text-on-dark-secondary:#AEABB0;
+  --color-text-on-dark-tertiary: #787580;
+  
+  /* 浅底文字（白色卡片上） */
+  --color-text-on-light:          #1A1A1A;
+  --color-text-on-light-secondary:#555555;
+  --color-text-on-light-tertiary: #888888;
+
+  /* ──────────────────────────────────────────
+     COLOR · 边框与分割
+     ────────────────────────────────────────── */
+  
+  --color-border-on-dark:    rgba(255, 255, 255, 0.15);
+  --color-border-on-dark-strong: rgba(255, 255, 255, 0.35);
+  --color-border-on-light:   rgba(0, 0, 0, 0.08);
+  --color-border-on-light-strong: rgba(0, 0, 0, 0.15);
+
+  /* ──────────────────────────────────────────
+     COLOR · 交互态
+     ────────────────────────────────────────── */
+  
+  --color-focus-ring: rgba(255, 255, 255, 0.4);
+
+  /* 半透明背景 */
+  --color-bg-nav-scrolled: rgba(41, 38, 43, 0.85);
+  --color-bg-nav-mobile: rgba(41, 38, 43, 0.95);
+  --color-bg-hover-dark: rgba(255, 255, 255, 0.08);
+  --color-bg-hover-dark-strong: rgba(255, 255, 255, 0.12);
+  --color-bg-active-dark: rgba(255, 255, 255, 0.12);
+  --color-border-hover-dark: rgba(255, 255, 255, 0.5);
+  --color-bg-primary-hover: rgba(255, 255, 255, 0.9);
+  --color-shadow-light: rgba(255, 255, 255, 0.15);
+
+  /* 打印样式 */
+  --color-border-print: #dddddd;
+
+  /* 选中和滚动条 */
+  --color-selection-bg: rgb(255 225 0);
+  --color-scrollbar-thumb: rgba(255, 255, 255, 0.15);
+  --color-scrollbar-thumb-hover: rgba(255, 255, 255, 0.25);
+
+  /* 描边效果 */
+  --color-stroke-white: #ffffff;
+
+  /* ──────────────────────────────────────────
+     TYPOGRAPHY · 字体族
+     
+     display:  大标题、品牌名（Roboto Condensed）
+     heading:  区块标题（思源黑体）
+     body:     正文内容（思源黑体 + Inter）
+     ui:       界面元素、标签、按钮文字
+     ────────────────────────────────────────── */
+  
+  --font-display: 'Roboto Condensed Variable', 'Noto Sans SC Variable', sans-serif;
+  --font-heading: 'Inter Variable', 'Noto Sans SC Variable', sans-serif;
+  --font-body:    'Inter Variable', 'Noto Sans SC Variable', sans-serif;
+  --font-ui:      'Inter Variable', 'Noto Sans SC Variable', sans-serif;
+
+  /* ──────────────────────────────────────────
+     TYPOGRAPHY · 字号阶梯
+     
+     基于 1.250 大二度音阶（Major Second）
+     搭配若干实用固定值。
+     基准: 16px = 1rem
+     ────────────────────────────────────────── */
+  
+  --text-2xs:   0.64rem;    /* ~10.2px — 极小标注 */
+  --text-xs:    0.75rem;    /* 12px — 辅助说明 */
+  --text-sm:    0.875rem;   /* 14px — 次要文字、UI标签 */
+  --text-base:  1rem;       /* 16px — 正文基准 */
+  --text-md:    1.125rem;   /* 18px — 正文稍大 */
+  --text-lg:    1.25rem;    /* 20px — 小标题 */
+  --text-xl:    1.5rem;     /* 24px — 区块副标题 */
+  --text-2xl:   2rem;       /* 32px — 区块标题 */
+  --text-3xl:   2.5rem;     /* 40px — 大区块标题 */
+  --text-4xl:   3.5rem;     /* 56px — Hero 副标语 */
+  --text-hero:  5.5rem;     /* 88px — Hero 品牌名 */
+
+  /* ──────────────────────────────────────────
+     TYPOGRAPHY · 字重
+     ────────────────────────────────────────── */
+  
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-black:    900;
+
+  /* ──────────────────────────────────────────
+     TYPOGRAPHY · 行高
+     ────────────────────────────────────────── */
+  
+  --leading-none:    1;
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.75;
+
+  /* ──────────────────────────────────────────
+     TYPOGRAPHY · 字间距
+     ────────────────────────────────────────── */
+  
+  --tracking-tighter: -0.03em;
+  --tracking-tight:   -0.02em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.02em;
+  --tracking-wider:    0.05em;
+  --tracking-widest:   0.1em;
+
+  /* ──────────────────────────────────────────
+     SPACING · 间距阶梯
+     
+     基于 4px 最小单元，8px 为基础步进。
+     用于：内边距、外边距、元素间隙。
+     ────────────────────────────────────────── */
+  
+  --space-0:   0;
+  --space-px:  1px;
+  --space-0_5: 0.125rem;   /* 2px */
+  --space-1:   0.25rem;    /* 4px */
+  --space-1_5: 0.375rem;   /* 6px */
+  --space-2:   0.5rem;     /* 8px */
+  --space-2_5: 0.625rem;   /* 10px */
+  --space-3:   0.75rem;    /* 12px */
+  --space-4:   1rem;       /* 16px */
+  --space-5:   1.25rem;    /* 20px */
+  --space-6:   1.5rem;     /* 24px */
+  --space-8:   2rem;       /* 32px */
+  --space-10:  2.5rem;     /* 40px */
+  --space-12:  3rem;       /* 48px */
+  --space-14:  3.5rem;     /* 56px */
+  --space-16:  4rem;       /* 64px */
+  --space-20:  5rem;       /* 80px */
+  --space-24:  6rem;       /* 96px */
+  --space-28:  7rem;       /* 112px */
+  --space-32:  8rem;       /* 128px */
+
+  /* ──────────────────────────────────────────
+     LAYOUT · 容器与宽度
+     ────────────────────────────────────────── */
+  
+  --container-sm:  640px;
+  --container-md:  768px;
+  --container-lg:  1024px;
+  --container-xl:  1200px;
+  --container-2xl: 1400px;
+
+  /* ──────────────────────────────────────────
+     LAYOUT · 导航栏
+     ────────────────────────────────────────── */
+  
+  --nav-height:      72px;
+  --nav-height-mobile: 60px;
+
+  /* ──────────────────────────────────────────
+     BORDER RADIUS · 圆角
+     ────────────────────────────────────────── */
+  
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-pill: 9999px;
+
+  /* ──────────────────────────────────────────
+     SHADOW · 阴影
+     ────────────────────────────────────────── */
+  
+  --shadow-xs:   0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm:   0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md:   0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg:   0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl:   0 16px 48px rgba(0, 0, 0, 0.16);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.06);
+
+  /* ──────────────────────────────────────────
+     TRANSITION · 过渡与动画
+     ────────────────────────────────────────── */
+  
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in:      cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
+  --ease-bounce:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  --duration-fast:   120ms;
+  --duration-normal: 200ms;
+  --duration-slow:   350ms;
+  --duration-slower: 500ms;
+
+  /* ──────────────────────────────────────────
+     Z-INDEX · 层级
+     ────────────────────────────────────────── */
+  
+  --z-base:     0;
+  --z-above:    10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-nav:      500;
+  --z-overlay:  900;
+  --z-modal:    1000;
+
+  /* ──────────────────────────────────────────
+     BREAKPOINTS · 断点（仅作文档参考）
+     实际媒体查询中直接使用像素值。
+     
+     sm:  640px  — 大手机 / 小平板
+     md:  768px  — 平板竖屏
+     lg:  1024px — 平板横屏 / 小笔电
+     xl:  1280px — 标准桌面
+     2xl: 1440px — 大屏桌面
+     ────────────────────────────────────────── */
+}
