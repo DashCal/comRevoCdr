@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +21,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/page.css">
 </head>
+
 <body>
 
   <!-- Navigation -->
@@ -82,27 +84,64 @@
         <!-- 主内容区 -->
         <main class="page-main">
 
-          <!-- Version 1.0.5 -->
+          <!-- Version 1.0.6 -->
           <article class="changelog-entry">
             <div class="changelog-entry__header">
-              <h2 class="changelog-entry__version">v1.0.5</h2>
-              <time class="changelog-entry__date" datetime="2026-09-01">2026-09-01</time>
+              <h2 class="changelog-entry__version">v1.0.6</h2>
+              <!-- <time class="changelog-entry__date" datetime="2026-09-13">2026-09-13</time> -->
             </div>
             <div class="changelog-entry__body">
               <h3>新增</h3>
               <ul>
-                <li>支持更多蓝牙语音遥控器型号</li>
-                <li>新增快捷键自定义功能</li>
+                <li>语音倒计时浮窗：支持独立透明窗口显示 60 秒倒计时，可拖动定位并持久化位置，圆环进度与数字同步变化</li>
+                <li>状态栏倒计时药丸：状态栏几何中心以药丸形 SVG 进度条呈现倒计时，支持深色与浅色模式自适应</li>
               </ul>
               <h3>修复</h3>
               <ul>
-                <li>修复了部分设备连接不稳定的问题</li>
-                <li>修复了语音输入偶尔无响应的问题</li>
+                <li>修复首次启动时默认按键映射无法触发的问题，根因为新旧格式解析器的兼容性缺陷</li>
+                <li>修复确定键（OK）在抑制 Enter 关闭状态下仍显示自定义映射而非 Enter 的显示一致性问题</li>
+                <li>修复信息存储系统在断电场景下的数据完整性风险，补充原子写入的磁盘同步保障</li>
+                <li>修复配置文件损坏时应用无法启动的问题，增加优雅降级与自动备份机制</li>
+                <li>修复前端保存设备配置时后端独有字段被静默重置的问题，改为增量合并策略</li>
               </ul>
               <h3>改进</h3>
               <ul>
-                <li>优化了设备连接速度</li>
-                <li>改善了用户界面响应速度</li>
+                <li>信息存储体系全面加固：原子写入、损坏降级、字段保护、时间戳备份、日志追踪</li>
+                <li>确定键与抑制 Enter 开关实现前后端联动，关闭状态下强制 Enter 映射并禁用自定义编辑</li>
+                <li>手动输入与更多选项中的未完成功能标记为禁用状态，避免用户误操作</li>
+                <li>设置面板音频区域行间距优化，全局设置页面标识与版本信息层级清晰化</li>
+                <li>构建流程重构：独立页面单独编译，避免多入口构建的注入异常</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Version 1.0.5 -->
+          <article class="changelog-entry">
+            <div class="changelog-entry__header">
+              <h2 class="changelog-entry__version">v1.0.5</h2>
+              <!-- <time class="changelog-entry__date" datetime="2026-09-11">2026-09-11</time> -->
+            </div>
+            <div class="changelog-entry__body">
+              <h3>新增</h3>
+              <ul>
+                <li>七状态系统架构设计：将运行状态划分为语音组与按键组两套独立体系，各自拥有精确的错误枚举与优雅降级策略</li>
+                <li>VB-CABLE 七状态精确检测：从简单的就绪判断扩展为
+                  Ready、NotInstalled、PartiallyInstalled、NeedsReboot、NotDefaultMic、EndpointError、ProbeFailed 七种状态</li>
+                <li>设备级按键抑制宽限期机制：通过 suppress_active 标记结合 50ms 宽限期，实现遥控器与物理键盘共用 VK 码时的精确区分</li>
+                <li>WinUHid Manager GUI 工具：基于 Python + tkinter 的驱动管理工具，支持智能检测、清理重复实例、一键安装</li>
+                <li>WinUHid 预签名分发方案：自签名证书 + Inf2Cat + SignTool 流水线，实现免禁用签名验证的一键安装</li>
+              </ul>
+              <h3>修复</h3>
+              <ul>
+                <li>修复 VB-CABLE ready 缓存永不过期的问题，引入 30 秒 TTL 机制支持运行时安装与卸载检测</li>
+                <li>修复 Menu 键与 TV 键长按后原生功能穿透的问题，通过 suppress_active 宽限期机制在不误伤物理键盘的前提下完整覆盖</li>
+                <li>修复 tap_vks 混合使用 WinUHid 与 SendInput 导致普通按键在 WinUHid 异常时无法注入的问题，统一为纯 SendInput + EXTRA_INFO</li>
+              </ul>
+              <h3>改进</h3>
+              <ul>
+                <li>按键系统架构修正：普通按键统一走 SendInput 注入路径，WinUHid 仅服务于语音键的 IME 快捷键注入，两条路径完全独立</li>
+                <li>按键抑制决策链审查：识别并记录 10 层决策链中的三处逻辑冗余，为后续简化重构提供依据</li>
+                <li>LL 钩子全键追踪日志：所有非注入键事件均记录 VK 码与抑制决策路径，便于运行时问题排查</li>
               </ul>
             </div>
           </article>
@@ -111,17 +150,91 @@
           <article class="changelog-entry">
             <div class="changelog-entry__header">
               <h2 class="changelog-entry__version">v1.0.4</h2>
-              <time class="changelog-entry__date" datetime="2026-08-15">2026-08-15</time>
+              <!-- <time class="changelog-entry__date" datetime="2026-09-09">2026-09-09</time> -->
             </div>
             <div class="changelog-entry__body">
               <h3>新增</h3>
               <ul>
-                <li>新增媒体控制功能</li>
-                <li>新增演示模式支持</li>
+                <li>事件驱动状态架构：状态轮询从 120 次/分钟 IPC 优化为后端 status-watcher 线程事件驱动 + 30 秒兜底轮询 + 窗口感知</li>
+                <li>深浅色主题系统：双主题体系，支持手动切换与系统主题自动跟随</li>
               </ul>
               <h3>修复</h3>
               <ul>
-                <li>修复了 Windows 10 2004 兼容性问题</li>
+                <li>修复蓝牙键盘被误判为遥控器导致空格与回车失效的问题，改用精确 VID/PID 匹配替代宽泛关键词</li>
+                <li>修复 OK 键单击触发双动作的时序竞争，在 input_session 中提前标记信号并结合 BLE 通知时间戳窗口判断</li>
+                <li>修复物理键盘 Enter 被误吞的问题，移除 tap_ready 全局标志，改为仅依赖 recent_signal 判断</li>
+              </ul>
+              <h3>改进</h3>
+              <ul>
+                <li>按键抑制状态追踪：从 Raw Input 设备发现改为三态状态机（待命/已激活/异常），支持自动恢复</li>
+                <li>VB-CABLE 音频路由排查：定位微信语音只收 1 秒的根因为 CABLE Input 作为默认播放设备时系统音频混入</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Version 1.0.3 -->
+          <article class="changelog-entry">
+            <div class="changelog-entry__header">
+              <h2 class="changelog-entry__version">v1.0.3</h2>
+              <!-- <time class="changelog-entry__date" datetime="2026-09-07">2026-09-07</time> -->
+            </div>
+            <div class="changelog-entry__body">
+              <h3>新增</h3>
+              <ul>
+                <li>Raw Input 设备级按键抑制：基于 hDevice 设备句柄实现遥控器与物理键盘的精确区分，在 LL 钩子层面按设备来源决定是否拦截</li>
+                <li>Enter 键强制抑制开关：用户可控的全局开关，开启后无条件拦截所有 Enter 事件（含物理键盘），作为信号窗口机制的兜底方案</li>
+                <li>按键抑制链路状态追踪：三态状态机（待命/已激活/异常）监控 HID Tap 与 GATT 双路径的抑制链路健康状态</li>
+              </ul>
+              <h3>修复</h3>
+              <ul>
+                <li>修复 WinUHid 启动预加载状态延迟导致虚拟键盘状态显示为待命的问题，通过后台线程预加载消除启动时的虚假异常</li>
+                <li>修复 TV 键 Shift+Enter 不触发的问题</li>
+              </ul>
+              <h3>改进</h3>
+              <ul>
+                <li>梳理从信号接收到事件到达应用的六阶段完整生命周期，明确注入系统与抑制系统的职责边界</li>
+                <li>抑制决策链从松散的条件判断整理为结构化的 6 层决策链，每层职责清晰、数据来源可追溯</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Version 1.0.2 -->
+          <article class="changelog-entry">
+            <div class="changelog-entry__header">
+              <h2 class="changelog-entry__version">v1.0.2</h2>
+              <!-- <time class="changelog-entry__date" datetime="2026-09-07">2026-09-07</time> -->
+            </div>
+            <div class="changelog-entry__body">
+              <h3>新增</h3>
+              <ul>
+                <li>遥控器按键映射多模式支持：单击、双击、长按三种触发模式，支持 SingleKey、ComboKey、TextInput、LaunchApp 四种动作类型</li>
+                <li>按键映射 UI 编辑器：可视化按键绑定配置，支持键盘实时录入与媒体键选取</li>
+              </ul>
+              <h3>修复</h3>
+              <ul>
+                <li>修复按键映射中的时序竞争问题，确保信号标记在固件 VK 事件到达之前完成</li>
+                <li>修复原生键穿透的完整链路问题，涵盖信号窗口过期、配置检查误伤物理键盘等边界场景</li>
+              </ul>
+              <h3>改进</h3>
+              <ul>
+                <li>简化应用启动流程</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Version 1.0.1 -->
+          <article class="changelog-entry">
+            <div class="changelog-entry__header">
+              <h2 class="changelog-entry__version">v1.0.1</h2>
+              <!-- <time class="changelog-entry__date" datetime="2026-09-06">2026-09-06</time> -->
+            </div>
+            <div class="changelog-entry__body">
+              <h3>新增</h3>
+              <ul>
+                <li>小米遥控器 2 Pro BLE 桥接核心功能：设备扫描、连接、按键事件接收、音频流订阅</li>
+                <li>按键注入双通道架构：SendInput 软件级注入与 WinUHid 硬件级注入并行，支持按场景自动选择</li>
+                <li>WinUHid 虚拟 HID 驱动适配：从 UMDF 2.33 降级至 2.31 以兼容 Windows 10，完成编译、签名、安装的完整流程</li>
+                <li>VB-CABLE 虚拟声卡集成：音频路由通道建立，支持遥控器麦克风音频经虚拟声卡输入至系统输入法</li>
               </ul>
             </div>
           </article>
@@ -130,14 +243,13 @@
           <article class="changelog-entry">
             <div class="changelog-entry__header">
               <h2 class="changelog-entry__version">v1.0.0</h2>
-              <time class="changelog-entry__date" datetime="2026-07-01">2026-07-01</time>
+              <!-- <time class="changelog-entry__date" datetime="2026-09-05">2026-09-05</time> -->
             </div>
             <div class="changelog-entry__body">
               <h3>初始版本</h3>
               <ul>
                 <li>Revocoder 首次发布</li>
                 <li>支持基础语音输入功能</li>
-                <li>支持媒体播放控制</li>
                 <li>支持自定义快捷键</li>
               </ul>
             </div>
@@ -199,7 +311,9 @@
             </ul>
           </div>
           <div class="footer__credits">
-            <p>Revocoder 是基于 <a href="https://github.com/xxb26553663-star/remote-bridge-hub" target="_blank">remote-bridge-hub</a> 二次开发的 <a href="https://github.com/mwlt/Voice_VibeCoding" target="_blank">Voice VibeCoding</a> 的再次开发</p>
+            <p>Revocoder 是基于 <a href="https://github.com/xxb26553663-star/remote-bridge-hub"
+                target="_blank">remote-bridge-hub</a> 二次开发的 <a href="https://github.com/mwlt/Voice_VibeCoding"
+                target="_blank">Voice VibeCoding</a> 的再次开发</p>
             <p>Revocoder by <a href="https://localwu.com" target="_blank">LocalWu</a> · 原创标识及相关设计仍具有相关版权</p>
           </div>
           <div class="footer__copyright">
@@ -215,4 +329,5 @@
   <script src="/js/main.js"></script>
 
 </body>
+
 </html>
