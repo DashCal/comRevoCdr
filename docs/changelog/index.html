@@ -88,7 +88,6 @@
           <article class="changelog-entry">
             <div class="changelog-entry__header">
               <h2 class="changelog-entry__version">v1.0.6</h2>
-              <!-- <time class="changelog-entry__date" datetime="2026-09-13">2026-09-13</time> -->
             </div>
             <div class="changelog-entry__body">
               <h3>新增</h3>
@@ -100,16 +99,15 @@
               <ul>
                 <li>修复首次启动时默认按键映射无法触发的问题</li>
                 <li>修复确定键（OK）在抑制 Enter 关闭状态下的一致性问题</li>
-                <li>修复信息存储系统在断电场景下的数据完整性风险</li>
+                <li>修复配置文件在断电场景下的数据完整性风险</li>
                 <li>修复配置文件损坏时应用无法启动的问题，增加降级与自动备份机制</li>
-                <li>修复前端保存设备配置时后端独有字段被静默重置的问题</li>
+                <li>修复配置保存时独有字段被静默重置的问题</li>
               </ul>
               <h3>改进</h3>
               <ul>
-                <li>信息存储体系全面加固</li>
                 <li>确定键与抑制 Enter 开关实现联动</li>
                 <li>面板音信息层级清晰化</li>
-                <li>构建流程重构</li>
+                <li>构建流程增强</li>
               </ul>
             </div>
           </article>
@@ -118,14 +116,12 @@
           <article class="changelog-entry">
             <div class="changelog-entry__header">
               <h2 class="changelog-entry__version">v1.0.5</h2>
-              <!-- <time class="changelog-entry__date" datetime="2026-09-11">2026-09-11</time> -->
             </div>
             <div class="changelog-entry__body">
               <h3>新增</h3>
               <ul>
-                <li>将运行状态划分为语音组与按键组两套独立体系，各自拥有错误枚举与降级策略</li>
-                <li>VB-CABLE 七状态精确检测</li>
-                <li>设备级按键抑制宽限期机制</li>
+                <li>将运行状态划分为语音组与按键组两套独立体系</li>
+                <li>按键抑制宽限期机制</li>
                 <li>WinUHid Manager GUI 工具</li>
                 <li>WinUHid 预签名分发方案</li>
               </ul>
@@ -137,9 +133,9 @@
               </ul>
               <h3>改进</h3>
               <ul>
-                <li>按键系统架构修正</li>
+                <li>按键系统架构结构增强</li>
                 <li>按键抑制决策链审查</li>
-                <li>全键追踪日志</li>
+                <li>丰富全键追踪日志</li>
               </ul>
             </div>
           </article>
@@ -148,12 +144,11 @@
           <article class="changelog-entry">
             <div class="changelog-entry__header">
               <h2 class="changelog-entry__version">v1.0.4</h2>
-              <!-- <time class="changelog-entry__date" datetime="2026-09-09">2026-09-09</time> -->
             </div>
             <div class="changelog-entry__body">
               <h3>新增</h3>
               <ul>
-                <li>事件驱动状态架构</li>
+                <li>事件驱动状态引入，减少一定量的重复代码</li>
                 <li>深浅色主题系统</li>
               </ul>
               <h3>修复</h3>
@@ -174,7 +169,6 @@
           <article class="changelog-entry">
             <div class="changelog-entry__header">
               <h2 class="changelog-entry__version">v1.0.3</h2>
-              <!-- <time class="changelog-entry__date" datetime="2026-09-07">2026-09-07</time> -->
             </div>
             <div class="changelog-entry__body">
               <h3>新增</h3>
@@ -200,7 +194,6 @@
           <article class="changelog-entry">
             <div class="changelog-entry__header">
               <h2 class="changelog-entry__version">v1.0.2</h2>
-              <!-- <time class="changelog-entry__date" datetime="2026-09-07">2026-09-07</time> -->
             </div>
             <div class="changelog-entry__body">
               <h3>新增</h3>
@@ -211,7 +204,7 @@
               <h3>修复</h3>
               <ul>
                 <li>修复按键映射中的时序竞争问题</li>
-                <li>修复原生键穿透的完整链路问题</li>
+                <li>审查修改原生键穿透的完整链路</li>
               </ul>
               <h3>改进</h3>
               <ul>
@@ -224,7 +217,6 @@
           <article class="changelog-entry">
             <div class="changelog-entry__header">
               <h2 class="changelog-entry__version">v1.0.1</h2>
-              <!-- <time class="changelog-entry__date" datetime="2026-09-06">2026-09-06</time> -->
             </div>
             <div class="changelog-entry__body">
               <h3>新增</h3>
@@ -241,14 +233,13 @@
           <article class="changelog-entry">
             <div class="changelog-entry__header">
               <h2 class="changelog-entry__version">v1.0.0</h2>
-              <!-- <time class="changelog-entry__date" datetime="2026-09-05">2026-09-05</time> -->
             </div>
             <div class="changelog-entry__body">
               <h3>初始版本</h3>
               <ul>
-                <li>Revocoder 首次发布</li>
+                <li>Revocoder 首次发布，基于前代项目重构</li>
                 <li>支持基础语音输入功能</li>
-                <li>支持自定义快捷键</li>
+                <li>支持自定义单击快捷键</li>
               </ul>
             </div>
           </article>
